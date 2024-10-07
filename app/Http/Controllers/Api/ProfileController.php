@@ -11,7 +11,7 @@ class ProfileController extends Controller
     public function index(){
         //dd(Auth::guard('web')->check());
         if (Auth::guard('sanctum')->check()) {
-            $userData=auth()->user();
+            $userData=Auth::user();
             $response['return']=true;
             $response['message'] = "Welcome ".$userData->name;
             $response['data'] = $userData;
@@ -20,6 +20,7 @@ class ProfileController extends Controller
             $response['return']=false;
             $response['message'] = "Something went wrong!";
             return response()->json($response, 400);
+
         }
         
     }
