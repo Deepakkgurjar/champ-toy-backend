@@ -18,7 +18,7 @@ class AdminLoginController extends Controller
     public function LoginAdmin(Request $request){
 
         //dd(Auth::guard($this->guard));
-        
+
         $rules=[
             'email'=>'required|email|exists:admins,email',
             'password'=>'required',
